@@ -1,0 +1,4 @@
+FROM python:3.9
+WORKDIR /
+COPY app_image.py .
+CMD [ "python", "app_image.py" ]
