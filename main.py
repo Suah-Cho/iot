@@ -30,7 +30,8 @@ while True:
         logging.info("Message received: ", message.data)
 
         # 수신된 메세지를 기반으로 업데이트 작업 실행
-        com = message.data['command']
+        com = message.data.decode("utf-8")
+        logging.info(f"Command received: {com}")
         command(command=com)
     except KeyboardInterrupt:
         # 디바이스 연결 해제
