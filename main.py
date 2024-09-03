@@ -30,9 +30,8 @@ while True:
         logging.info("Message received: ", message.data)
 
         # 수신된 메세지를 기반으로 업데이트 작업 실행
-        new_image_info = message.data.decode("utf-8")['image_info']
-        new_acr = message.data.decode("utf-8")['acr']
-        command(acr=new_acr, image_info=new_image_info)
+        com = message.data['command']
+        command(command=com)
     except KeyboardInterrupt:
         # 디바이스 연결 해제
         logging.info("Disconnecting from IoT Hub")
